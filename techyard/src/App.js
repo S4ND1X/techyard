@@ -1,7 +1,10 @@
+import Evaluation from "./views/Evaluation";
+
 function App() {
   return (
     <div className="App">
-      <h1>Techyard</h1>
+
+      <Evaluation/>
     </div>
   );
 }
