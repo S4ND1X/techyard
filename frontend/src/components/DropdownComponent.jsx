@@ -91,7 +91,6 @@ export default function DropdownComponent(props) {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-
                     {dropdownOptions.map(k => <MenuItem key={k} onClick={() => handleClose(k)}>{k}</MenuItem>)}
                   </MenuList>
                 </ClickAwayListener>
