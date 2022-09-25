@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
@@ -11,7 +10,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import IconButton from '@mui/material/IconButton';
 
-export default function MenuListComposition() {
+const dropdownOptions = [
+  "Home",
+  "Evaluation",
+  "Product",
+]
+
+export default function DropdownComponent(props) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -19,11 +24,8 @@ export default function MenuListComposition() {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
+  const handleClose = (value) => {
+    props.dropdownChangeHandler(value);
     setOpen(false);
   };
 
@@ -89,9 +91,8 @@ export default function MenuListComposition() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+
+                    {dropdownOptions.map(k => <MenuItem key={k} onClick={() => handleClose(k)}>{k}</MenuItem>)}
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

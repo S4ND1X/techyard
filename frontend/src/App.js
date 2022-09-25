@@ -1,18 +1,24 @@
 import Evaluation from "./views/Evaluation";
 import ProductCard from "./components/ProductCard";
 import CssBaseline from '@mui/material/CssBaseline';
-import { AppBar } from "@mui/material";
-import ResponsiveAppBar from "./components/Navbar";
+import React from "react";
+import AppbarComponent from "./components/AppbarComponent";
 
 
+const tabs = {
+  "Evaluation": <Evaluation/>,
+  "Product": <ProductCard/>,
+  "Home": <Evaluation/>
+};
 
+function App() {  
+  const [tab, setTab] = React.useState("Home");
 
-function App() {
   return (
     <div className="App">
-      <CssBaseline/>
-      <ResponsiveAppBar/>
-      <Evaluation/>
+      <AppbarComponent dropdownChangeHandler={(value) => setTab(value)}/>
+      <CssBaseline />
+      {tabs[tab]}
     </div>
   );
 }
