@@ -8,52 +8,65 @@ import tablet from "../evaluation_models/tablet.json";
 
 import ModelEvaluationDescription from "../components/ModelEvaluationDescription";
 
+import Typography from "@mui/material/Typography";
+
+import IconButton from '@mui/material/IconButton';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 const evaluationModels = {
     "Computer": {
         "model": computer,
-        "img": "https://i.pinimg.com/564x/aa/9e/77/aa9e778d07ffcb0cad9464d5f6a2852c--computer-basics-computer-class.jpg",
+        "img": "https://img.freepik.com/premium-photo/modern-home-workplace-with-pc-computer-table-blurred-beautiful-lake-background_67155-22944.jpg?w=2000",
     },
     "Display": {
         "model": display,
-        "img": "https://thumbs.dreamstime.com/b/happy-retro-cartoon-television-style-135389730.jpg",
+        "img": "https://xiaomiplanet.sk/wp-content/uploads/2020/04/xiaomi-mi-display-1a-predstavenie.jpg",
     },
     "Laptop": {
         "model": laptop,
-        "img": "https://image.shutterstock.com/image-vector/laptop-cartoon-vector-illustration-computer-600w-1292073241.jpg",
+        "img": "https://cdn.cnn.com/cnnnext/dam/assets/211025072623-macbook-pro-14-display-5.jpg",
     },
     "Phone": {
         "model": phone,
-        "img": "https://thumbs.dreamstime.com/b/mobile-phone-cartoon-character-mascot-giving-double-thumbs-up-mobile-phone-thumbs-up-cartoon-mascot-156284748.jpg",
+        "img": "https://m-cdn.phonearena.com/images/articles/380391-image/sierra-blue-iphone-13-pro.jpg",
     },
     "Speaker": {
         "model": speaker,
-        "img": "https://thumbs.dreamstime.com/z/smart-speaker-cartoon-funny-character-speaking-megaphone-isolated-white-136446089.jpg",
+        "img": "https://i.rtings.com/assets/products/Raq5Ijzg/apple-homepod-mini/design-small.jpg",
     },
     "Tablet": {
         "model": tablet,
-        "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.123rf.com%2Fphoto_24469362_computer-tablet-cartoon-giving-thumb-up.html&psig=AOvVaw18KShmwt38hLGproKTn62Y&ust=1664156431617000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLjS-vnnrvoCFQAAAAAdAAAAABAD",
+        "img": "https://cdn.ipadizate.com/2022/08/iPad-Pro.1660215525.7846.jpg",
     },
 };
 
 
 export default function Evaluation() {
-    const [selectedOption, setSelectedOption] = React.useState("Speaker");
 
     return (
         <div>
-            <select onChange={event => setSelectedOption(event.target.value)}>
-                {Object.keys(evaluationModels).map(k => {
-                    return (
-                        <option key={k}>{k}</option>
-                    )
-                })}
-            </select>
+            <div style={{
+                height: "calc(100vh - 64px)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
+                <Typography variant="h1">How we price our products 
+                </Typography>
+            </div>
 
-            <ModelEvaluationDescription
-                modelName={selectedOption}
-                model={evaluationModels[selectedOption]["model"]}
-                modelImg={evaluationModels[selectedOption]["img"]}
-            />
+            {Object.keys(evaluationModels).map((k, index) => {
+                return (
+                    <ModelEvaluationDescription
+                        modelName={k}
+                        model={evaluationModels[k]["model"]}
+                        modelImg={evaluationModels[k]["img"]}
+                        inversed={index % 2 === 0}
+                    />
+                )
+            })}
+
+
         </div>
     )
 }
