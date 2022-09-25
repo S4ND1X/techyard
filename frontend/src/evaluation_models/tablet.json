@@ -1,7 +1,7 @@
 {
-    "Physical condition": 2,
-    "Usage": 2,
-    "Performance": 3,
-    "Original components included": 1,
-    "Storage": 2
+    "Physical condition": 0.2,
+    "Usage": 0.2,
+    "Performance": 0.3,
+    "Original components included": 0.1,
+    "Storage": 0.2
 }
