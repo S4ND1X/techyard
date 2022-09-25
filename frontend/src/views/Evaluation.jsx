@@ -7,7 +7,6 @@ import speaker from "../evaluation_models/speaker.json";
 import tablet from "../evaluation_models/tablet.json";
 
 import ModelEvaluationDescription from "../components/ModelEvaluationDescription";
-import Navbar from "../components/Navbar";
 
 import Typography from "@mui/material/Typography";
 
@@ -53,7 +52,7 @@ export default function Evaluation() {
                 justifyContent: "center",
                 alignItems: "center"
             }}>
-                <Typography variant="h1">How we price our products 
+                <Typography variant="h1">How we price our products
                 </Typography>
             </div>
 

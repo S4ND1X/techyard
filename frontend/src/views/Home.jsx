@@ -22,7 +22,7 @@ function multiplyObject(object_to_copy, n) {
 }
 
 
-const GridItemComponent = ({ data }) =>
+const GridItemComponent = ({ data, premium, collectable, rebuilt, selectProductHandler }) =>
     <Grid xs={4}>
         <Paper sx={{
             display: "flex",
@@ -32,20 +32,45 @@ const GridItemComponent = ({ data }) =>
             border: "none",
         }}
             variant="outlined"
+            onClick={selectProductHandler}
         >
             <img src={data["img"]} alt="product" width="350px" height="350px" />
-            <Typography variant='subtitle1' gutterBottom>{data["name"]}</Typography>
+            <Typography variant='subtitle1' gutterBottom sx={{ fontWeight: "bold" }}>{data["name"]}</Typography>
 
 
             <Typography>💎 {data["price"]}</Typography>
             <Typography>Rating: {data["rating"]}</Typography>
-            <Chip label="Premium" />
+            {premium && <Chip label="Premium" sx={{
+                backgroundColor: "red",
+                color: "white"
+            }} />}
+            {collectable && <Chip label="Collectable" sx={{
+                backgroundColor: "gold",
+                color: "black"
+            }} />}
+            {rebuilt && <Chip label="Rebuilt" sx={{
+                backgroundColor: "#25f6be",
+                color: "black"
+            }} />}
         </Paper>
     </Grid>
 
 
-export default function Home() {
+export default function Home(props) {
+
     return <div>
+        <div style={{
+            height: "30px",
+            backgroundColor: "#ffdd00",
+            display: "flex",
+            alignItems: "center",
+            fontWeight: "bold",
+            fontStyle: "italic",
+            padding: "0 20px"
+        }}>
+            🚀 We're pleased to announce the release of our new premium features 🎉, Including free shipping, exclusive products and more!
+        </div>
+
         <div style={{ padding: "100px", textAlign: "center" }}>
             <Typography variant='h1'>Tech<span style={{ "color": "green" }}>Yard</span></Typography>
             <Typography variant="h4" gutterBottom>Where nothing becomes everything</Typography>
@@ -58,9 +83,12 @@ export default function Home() {
         </div>
         <FilterSidebarComponent />
         <Grid container spacing={5} sx={{ width: "1200px", margin: "auto" }}>
+            <GridItemComponent data={dummy_grid_item} premium selectProductHandler={props.selectProductHandler} />
+            <GridItemComponent data={dummy_grid_item} collectable selectProductHandler={props.selectProductHandler} />
+            <GridItemComponent data={dummy_grid_item} rebuilt selectProductHandler={props.selectProductHandler} />
 
             {multiplyObject(dummy_grid_item, 9).map(k =>
-                <GridItemComponent data={k} />
+                <GridItemComponent data={k} selectProductHandler={props.selectProductHandler} />
             )}
         </Grid>
     </div>

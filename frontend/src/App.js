@@ -13,13 +13,6 @@ import Product from "./views/Product";
 
 
 
-const tabs = {
-  "Evaluation": <Evaluation/>,
-  "Product": <ProductCard/>,
-  "Home": <Home/>
-};
-
-
 let theme = createTheme({
   palette: {
     primary: {
@@ -31,15 +24,21 @@ let theme = createTheme({
   },
 });
 
-function App() {  
+function App() {
   const [tab, setTab] = React.useState("Home");
+
+  const tabs = {
+    "Evaluation": <Evaluation />,
+    "Product": <Product />,
+    "Home": <Home selectProductHandler={() => {setTab("Product")}}/>
+  };
 
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-      <AppbarComponent dropdownChangeHandler={(value) => setTab(value)}/>
-      <CssBaseline />
-      {tabs[tab]}
+        <AppbarComponent dropdownChangeHandler={(value) => setTab(value)} />
+        <CssBaseline />
+        {tabs[tab]}
       </ThemeProvider>
 
     </div>

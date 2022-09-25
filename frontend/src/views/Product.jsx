@@ -1,12 +1,11 @@
 import React from "react";
 
-import Navbar from "../components/Navbar";
 import ProductDetailsComponent from "../components/ProductDetailsComponent";
+import AppbarComponent from "../components/AppbarComponent";
 
 export default function ProductDetails() {
     return (
         <div>
-            <Navbar />
             <ProductDetailsComponent productName="Motorola Edge 20" productDesc="Moto Edge 20 blanco
 Cámara trasera 108MP + 16MP (wide/macro) + Cámara Frontal 32 MP, LED flash, Procesador 8 Núcleos + 6 GB RAM
 Procesador Qualcomm, Snapdragon 778G Octacore, Quad Kryo Gold @2.4 GHz, Quad Kryo Silver @1.8 GHz
