@@ -3,7 +3,7 @@ export default function ModelEvaluationDescription({ modelName, model, modelImg,
         <div style={{
             display: "flex",
             flexDirection: inversed ? "row" : "row-reverse",
-            justifyContent: "center"
+            justifyContent: "center",
         }}>
             <img src={modelImg} alt="product" width="50%" height="400px" style={{ objectFit: "cover" }} />
             <div style={{

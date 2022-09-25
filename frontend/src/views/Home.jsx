@@ -77,7 +77,7 @@ export default function Home(props) {
             <Stack direction="row" spacing={2} sx={{
                 justifyContent: "center"
             }}>
-                <Button variant='contained'>More Info</Button>
+                <Button variant='contained' onClick={props.detailsHandler}>More Info</Button>
                 <Button variant='contained' color="success">Get Started</Button>
             </Stack>
         </div>
@@ -86,6 +86,13 @@ export default function Home(props) {
             <GridItemComponent data={dummy_grid_item} premium selectProductHandler={props.selectProductHandler} />
             <GridItemComponent data={dummy_grid_item} collectable selectProductHandler={props.selectProductHandler} />
             <GridItemComponent data={dummy_grid_item} rebuilt selectProductHandler={props.selectProductHandler} />
+            <GridItemComponent data={{
+                "name": "Motorola",
+                "price": 14030,
+                "rating": 8.3,
+                "usage": 3,
+                "img": "https://m.media-amazon.com/images/I/41eA1f1FoWL._AC_.jpg"
+            }} selectProductHandler={props.selectProductHandler} />
 
             {multiplyObject(dummy_grid_item, 9).map(k =>
                 <GridItemComponent data={k} selectProductHandler={props.selectProductHandler} />

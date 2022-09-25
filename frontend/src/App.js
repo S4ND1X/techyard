@@ -30,7 +30,7 @@ function App() {
   const tabs = {
     "Evaluation": <Evaluation />,
     "Product": <Product />,
-    "Home": <Home selectProductHandler={() => {setTab("Product")}}/>
+    "Home": <Home selectProductHandler={() => { setTab("Product") }} detailsHandler={() => { setTab("Evaluation") }} />
   };
 
   return (

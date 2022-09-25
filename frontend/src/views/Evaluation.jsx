@@ -45,12 +45,11 @@ export default function Evaluation() {
 
     return (
         <div>
-
             <div style={{
                 height: "calc(100vh - 64px)",
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
             }}>
                 <Typography variant="h1">How we price our products
                 </Typography>

@@ -1,7 +1,6 @@
 import React from "react";
 
 import ProductDetailsComponent from "../components/ProductDetailsComponent";
-import AppbarComponent from "../components/AppbarComponent";
 
 export default function ProductDetails() {
     return (

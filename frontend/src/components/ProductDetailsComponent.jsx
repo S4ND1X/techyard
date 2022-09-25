@@ -9,19 +9,21 @@ export default function ProductDetailsComponent({
   productImg,
 }) {
   return (
-    <div>
-      <h1>{productName}</h1>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <img src={productImg} alt="product" width="400px" height="400px" />
-        <Typography component="legend">Read only</Typography>
+    <div style={{ display: "flex" }}>
+      <img src={productImg} alt="product" width="800px" height="800px" />
+      <div sx={{}}>
+        <h1>{productName}</h1>
+
+        <Typography component="legend">Used - Good state</Typography>
         <Rating name="read-only" value={4} readOnly />
         <p>{productDesc}</p>
         <div>
-          <Button variant="contained" size="medium">
-            Add to car
+          💎 4000
+          <Button variant="contained" size="small" sx={{marginLeft: "10px"}}>
+            Buy
           </Button>
         </div>
-      </Box>
+      </div>
     </div>
   );
 }
