@@ -7,6 +7,7 @@ import speaker from "../evaluation_models/speaker.json";
 import tablet from "../evaluation_models/tablet.json";
 
 import ModelEvaluationDescription from "../components/ModelEvaluationDescription";
+import Navbar from "../components/Navbar";
 
 const evaluationModels = {
     "Computer": {
@@ -41,6 +42,7 @@ export default function Evaluation() {
 
     return (
         <div>
+            <Navbar />
             <select onChange={event => setSelectedOption(event.target.value)}>
                 {Object.keys(evaluationModels).map(k => {
                     return (
