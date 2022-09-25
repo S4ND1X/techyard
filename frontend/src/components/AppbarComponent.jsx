@@ -10,9 +10,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 const DUMMY_POINTS = "42069";
 
 export default function ButtonAppBar(props) {
-  const [appbarTitle, setAppbarTitle] = React.useState("Home");
   function dropdownChangeHandler(value) {
-    setAppbarTitle(value);
     props.dropdownChangeHandler(value);
   }
 
@@ -22,7 +20,7 @@ export default function ButtonAppBar(props) {
         <Toolbar>
           <DropdownComponent dropdownChangeHandler={dropdownChangeHandler} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            {appbarTitle}
+            Tech<b>Yard</b>
           </Typography>
 
           <Typography sx={{
