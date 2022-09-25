@@ -84,9 +84,9 @@ export default function DropdownComponent(props) {
               }}
             >
               <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
+                <ClickAwayListener onClickAway={handleToggle}>
                   <MenuList
-                    autoFocusItem={open}
+                    autoFocusItem={true}
                     id="composition-menu"
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
