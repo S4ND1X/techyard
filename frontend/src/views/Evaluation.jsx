@@ -7,6 +7,7 @@ import speaker from "../evaluation_models/speaker.json";
 import tablet from "../evaluation_models/tablet.json";
 
 import ModelEvaluationDescription from "../components/ModelEvaluationDescription";
+import Navbar from "../components/Navbar";
 
 import Typography from "@mui/material/Typography";
 
@@ -45,6 +46,7 @@ export default function Evaluation() {
 
     return (
         <div>
+
             <div style={{
                 height: "calc(100vh - 64px)",
                 display: "flex",
@@ -65,7 +67,6 @@ export default function Evaluation() {
                     />
                 )
             })}
-
 
         </div>
     )

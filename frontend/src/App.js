@@ -1,10 +1,14 @@
 import Evaluation from "./views/Evaluation";
 import ProductCard from "./components/ProductCard";
 import CssBaseline from '@mui/material/CssBaseline';
+
 import React from "react";
 import AppbarComponent from "./components/AppbarComponent";
 import Home from "./views/Home";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+
+import Product from "./views/Product";
 
 
 
@@ -37,6 +41,7 @@ function App() {
       <CssBaseline />
       {tabs[tab]}
       </ThemeProvider>
+
     </div>
   );
 }
